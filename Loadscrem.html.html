@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tela de Carregamento</title>
+<style>
+    body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        overflow: hidden; /* impede a barra de rolagem do corpo */
+    }
+    #video-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000; /* cor de fundo preta para o caso do vídeo não preencher todo o espaço */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #video-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+</style>
+</head>
+<body>
+<div id="video-container">
+    <iframe src="https://www.youtube.com/embed/O4YfekwCLTc?autoplay=1&loop=1&controls=0&showinfo=0&rel=0&disablekb=1&playlist=O4YfekwCLTc" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<script>
+    // Função para ajustar o tamanho do iframe quando a janela é redimensionada
+    function resizeVideo() {
+        var videoContainer = document.getElementById('video-container');
+        var iframe = videoContainer.querySelector('iframe');
+
+        // Ajusta o tamanho do iframe para preencher toda a janela
+        iframe.style.width = window.innerWidth + 'px';
+        iframe.style.height = window.innerHeight + 'px';
+    }
+
+    // Chama a função de redimensionamento quando a janela é redimensionada
+    window.onresize = resizeVideo;
+
+    // Inicialmente ajusta o tamanho do vídeo
+    resizeVideo();
+</script>
+
+</body>
+</html>
+
